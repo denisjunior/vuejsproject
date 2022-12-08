@@ -21,6 +21,10 @@ const user = useCurrentUser();
 
 <template>
   <main>
+
+    <div class="user-text">
+      <p v-if="user">Bienvenue {{ user.email }}</p>
+    </div>
     <div class="cards">
       <v-card
         class="card"
@@ -110,12 +114,17 @@ export default {
 </script>
 
 <style scoped>
+.user-text{
+  margin: 15px;
+  margin-left: 750px;
+  font-size: 1.3em;
+}
 .cards {
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
-  margin: 200px;
-  margin-top: 200px;
+  margin: 100px;
+  margin-top: 100px;
 }
 .card {
   flex: 0 0 200px;
