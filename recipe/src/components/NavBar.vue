@@ -8,22 +8,23 @@ const user = useCurrentUser();
 <template>
   <div>
     <div class="nav-menu">
-      <i class="fas fa-bars" @click="showMenu()"> </i>
+        <v-icon icon="mdi-menu" @click="showMenu()"/>
+
       <div
         class="nav-content"
         :class="this.showMobileMenu ? 'open-menu' : 'closed-menu'"
       >
         <div class="logo">Logo</div>
         <ul class="nav-items">
-          <li class="item-link"><RouterLink to="/">Accueil</RouterLink></li>
-          <li class="item-link">
-            <RouterLink to="/about">A propos</RouterLink>
+          <li v-if="user" class="item-link"><RouterLink to="/home">Accueil</RouterLink></li>
+          <li v-if="user" class="item-link">
+            <RouterLink  to="/about">A propos</RouterLink>
           </li>
-          <li class="item-link">
+          <li v-if="user" class="item-link">
             <RouterLink to="/recipes">Recettes</RouterLink>
           </li>
           <li>
-            <RouterLink v-if="!user" to="/login">Login - Register</RouterLink>
+            <RouterLink v-if="!user" to="/">Login - Register</RouterLink>
           </li>
         </ul>
         <div>
@@ -55,6 +56,7 @@ export default {
     },
     async logout() {
       await signOut(getAuth());
+      this.$router.push("/");
     },
   },
 };
@@ -91,14 +93,14 @@ export default {
   margin: 0;
   padding: 0;
   li {
-    padding: 10px 16px;
+    padding: 0px 10px;
   }
 }
 i {
   display: none;
 }
 // Mobile version - hidden hamburger menu
-/* @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .nav-menu {
     padding-top: 10px;
     position: absolute;
@@ -127,5 +129,5 @@ i {
     text-align: right;
     padding: 0 10px 10px 0;
   }
-} */
+}
 </style>

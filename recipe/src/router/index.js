@@ -2,13 +2,14 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import RecipesView from "../views/RecipesView.vue";
 import LoginView from "../views/LoginView.vue";
+import NotFoundView from "../views/NotFoundView.vue";
 import { getCurrentUser, useCurrentUser } from "vuefire";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: "/",
+      path: "/home",
       name: "home",
       component: HomeView,
     },
@@ -18,7 +19,7 @@ const router = createRouter({
       component: RecipesView,
     },
     {
-      path: "/login",
+      path: "/",
       name: "login",
       component: LoginView,
     },
@@ -30,6 +31,11 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import("../views/AboutView.vue"),
     },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'Not Found',
+      component: NotFoundView
+    }
   ],
 });
 

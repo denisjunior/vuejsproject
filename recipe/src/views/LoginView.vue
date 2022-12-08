@@ -45,7 +45,7 @@ export default {
       this.failed = false;
       try {
         await signInWithEmailAndPassword(getAuth(), this.email, this.password);
-        this.$router.push("/");
+        this.$router.push("home");
       } catch (error) {
         this.failed = true;
       }
@@ -63,8 +63,8 @@ export default {
   padding: 20px;
 }
 .btn-register {
-    margin-left: 15px;
-    color: #ffffff;
-    background-color: rgb(25, 118, 210);
+  margin-left: 15px;
+  color: #ffffff;
+  background-color: rgb(25, 118, 210);
 }
 </style>
