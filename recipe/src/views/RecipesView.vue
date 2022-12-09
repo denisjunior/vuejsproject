@@ -23,7 +23,7 @@ const user = useCurrentUser();
   <main>
     <div class="query-search">
       <v-text-field label="query" v-model="searchQuery" />
-      <v-btn v-on:click="search">Search</v-btn>
+      <v-btn v-on:click="search">Rechercher</v-btn>
     </div>
 
     <div class="item-card">
@@ -44,7 +44,7 @@ const user = useCurrentUser();
           {{ recipe.recipe.label }}
         </v-card-title>
 
-        <v-card-actions>
+        <v-card-actions class="item-action">
           <v-spacer></v-spacer>
 
           <v-btn
@@ -146,5 +146,8 @@ export default {
   margin: auto;
   margin-top: 10px;
   padding: 20px;
+}
+.item-action{
+  background-color: rgb(206, 201, 201);
 }
 </style>

@@ -8,17 +8,17 @@ const user = useCurrentUser();
 <template>
   <div>
     <div class="nav-menu">
-        <v-icon icon="mdi-menu" @click="showMenu()"/>
+      <v-icon icon="mdi-menu" />
 
-      <div
-        class="nav-content"
-        :class="this.showMobileMenu ? 'open-menu' : 'closed-menu'"
-      >
-        <div class="logo">Logo</div>
+      <div class="nav-content">
+        <div class="logo">RECETTES</div>
+
         <ul class="nav-items">
-          <li v-if="user" class="item-link"><RouterLink to="/home">Accueil</RouterLink></li>
           <li v-if="user" class="item-link">
-            <RouterLink  to="/about">A propos</RouterLink>
+            <RouterLink to="/home">Accueil</RouterLink>
+          </li>
+          <li v-if="user" class="item-link">
+            <RouterLink to="/about">A propos</RouterLink>
           </li>
           <li v-if="user" class="item-link">
             <RouterLink to="/recipes">Recettes</RouterLink>
@@ -45,15 +45,7 @@ const user = useCurrentUser();
 
 <script>
 export default {
-  data() {
-    return {
-      showMobileMenu: false,
-    };
-  },
   methods: {
-    showMenu() {
-      this.showMobileMenu = !this.showMobileMenu;
-    },
     async logout() {
       await signOut(getAuth());
       this.$router.push("/");

@@ -2,7 +2,7 @@
 import { RouterLink, RouterView } from "vue-router";
 </script>
 <template>
-  <div class="container" :class="animate">
+  <div class="container" >
     <h1 class="first-four">4</h1>
     <div class="cog-wheel1">
       <div class="cog1">
@@ -41,7 +41,9 @@ import { RouterLink, RouterView } from "vue-router";
 
 <script>
 export default {
-  name: "NotFound",
+  mounted(){
+    this.animate
+  },
 
   methods: {
     animate() {
@@ -82,8 +84,7 @@ export default {
     },
   },
 };
-</script>
-
+</script> 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap");
 

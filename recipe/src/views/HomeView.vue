@@ -21,27 +21,24 @@ const user = useCurrentUser();
 
 <template>
   <main>
-
     <div class="user-text">
       <p v-if="user">Bienvenue {{ user.email }}</p>
     </div>
-    <div class="cards">
+    <div class="card">
       <v-card
-        class="card"
+        class="cards"
         variant="outlined"
         v-for="liste of listes"
         :key="liste.capital"
       >
         <v-img :src="liste.flags.png" class="align-end" height="200px" cover>
         </v-img>
-
-        <v-card-actions>
-          <v-card-title class="item-title">
-            {{ liste.name.common }}
-          </v-card-title>
-
+        <v-card-title class="item-title">
+          <p>Pays:</p>{{ liste.name.common }}
+          <p>Région</p>{{liste.region}}
+        </v-card-title>
+        <v-card-actions class="item-action">
           <v-spacer></v-spacer>
-
           <v-btn
             v-if="user"
             size="small"
@@ -114,23 +111,29 @@ export default {
 </script>
 
 <style scoped>
-.user-text{
+.user-text {
   margin: 15px;
   margin-left: 750px;
   font-size: 1.3em;
 }
-.cards {
+.card {
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
   margin: 100px;
   margin-top: 100px;
 }
-.card {
+.cards {
   flex: 0 0 200px;
   margin: 10px;
   border: 1px solid #ccc;
   box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
   max-width: 500px;
+}
+.item-title {
+  font-size: 15px;
+}
+.item-action{
+  background-color: rgb(206, 201, 201);
 }
 </style>

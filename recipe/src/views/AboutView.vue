@@ -23,7 +23,7 @@
   </div>
 
   <div class="bloc">
-    <h1>Tommy le Chat</h1>
+    <h1>Tommy le Chat</h1><h2>Chef étoilé aux délices du paradi</h2>
 
     <p>Je m'en souviens comme mon dernier repas...</p>
 
