@@ -44,6 +44,15 @@ router.beforeEach(async (to) => {
   if (to.name === "login" && currentUser) {
     return { name: "home" };
   }
+  if(to.name === "about" && currentUser === null){
+    return { name: "login" };
+  }
+  if(to.name === "recipes" && currentUser === null){
+    return { name: "login" };
+  }
+  if(to.name === "home" && currentUser === null){
+    return { name: "login" };
+  }
 });
 
 export default router;

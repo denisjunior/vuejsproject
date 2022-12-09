@@ -42,7 +42,7 @@ import { RouterLink, RouterView } from "vue-router";
 <script>
 export default {
   mounted(){
-    this.animate
+    this.animate()
   },
 
   methods: {

@@ -11,7 +11,7 @@ import {
     <div id="login">
       <v-text-field label="email" v-model="email" />
       <v-text-field type="password" label="password" v-model="password" />
-      <v-alert v-if="failed" type="error">Operation failed</v-alert>
+      <v-alert v-if="failed" type="error">La connexion a échoué</v-alert>
       <v-btn class="btn-login" v-on:click="login">Se connecter</v-btn>
       <v-btn class="btn-register" v-on:click="register">S'inscrire</v-btn>
     </div>
@@ -36,7 +36,7 @@ export default {
           this.email,
           this.password
         );
-        this.$router.push("/");
+        this.$router.push("home");
       } catch (error) {
         this.failed = true;
       }
